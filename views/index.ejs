@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title><%= title %></title>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background:#18181b;
+        overflow:hidden;
+    }
+
+    .chessboard{
+        width:480px;
+        height:480px;
+        display:grid;
+        grid-template-columns:repeat(8,1fr);
+        grid-template-rows:repeat(8,1fr);
+        border:6px solid #333;
+        box-shadow:0 10px 30px rgba(0,0,0,.5);
+    }
+
+    .square{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        user-select:none;
+        transition:0.2s;
+    }
+
+    .light{
+        background:#f0d9b5;
+    }
+
+    .dark{
+        background:#b58863;
+    }
+
+    .square:hover{
+        filter:brightness(1.08);
+    }
+
+    .piece{
+        width:100%;
+        height:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:42px;
+        cursor:grab;
+        user-select:none;
+    }
+
+    .piece:active{
+        cursor:grabbing;
+    }
+
+    .piece.white{
+        color:#ffffff;
+        text-shadow:0 0 3px #000;
+    }
+
+    .piece.black{
+        color:#000000;
+        text-shadow:0 0 2px #fff;
+    }
+
+    .piece[draggable="false"]{
+        cursor:not-allowed;
+        opacity:.8;
+    }
+    .flipped{
+        transform: rotate(180deg);
+    }
+
+    .flipped .piece{
+        transform: rotate(180deg);
+    }
+
+    @media (max-width:600px){
+        .chessboard{
+            width:95vw;
+            height:95vw;
+        }
+
+        .piece{
+            font-size:34px;
+        }
+    }
+</style></head>
+<body>
+    <div class="w-full h-screen flex item-center justify-center bg-zinc-900">
+        <div class="chessboard w-96 h-96 bg-blue-400">hii <%= title %></div>
+    </div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js
+"></script>
+    <!-- Load client-side game logic (after socket.io is loaded) -->
+    <script src="/js/chessgame.js"></script>
+</body>
+</html>

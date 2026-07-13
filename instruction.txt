@@ -1,0 +1,143 @@
+==========================================
+REAL-TIME MULTIPLAYER CHESS GAME
+==========================================
+
+TECHNOLOGIES
+
+🟢 Node.js
+⚡ Express.js
+🔌 Socket.IO
+♟️ Chess.js
+📄 EJS
+💛 JavaScript
+
+==========================================
+INSTALLATION
+==========================================
+
+1. Clone the repository
+
+git clone <repository-url>
+
+2. Open project folder
+
+cd chess-game
+
+3. Install dependencies
+
+npm install
+
+4. Install required packages
+
+npm install express socket.io chess.js ejs
+
+5. Run project
+
+node server.js
+
+OR
+
+npm start
+
+6. Open browser
+
+http://localhost:3000
+
+==========================================
+WORKFLOW
+==========================================
+
+Initialization
+
+• Socket.IO and Chess.js objects are initialized.
+• Chessboard element is selected.
+• draggedPiece, sourceSquare and playerRole are initialized.
+• Initial board is rendered.
+
+Board Rendering
+
+• renderBoard() creates an 8×8 chessboard.
+• Chess pieces are displayed.
+• Board updates after every move.
+• Board flips for the black player.
+
+Drag and Drop
+
+• Select a piece.
+• Drag to destination square.
+• Convert coordinates to chess notation.
+• Send move to server.
+
+Server Validation
+
+• Express receives request.
+• Socket.IO transfers move.
+• Chess.js validates move.
+• Invalid moves are rejected.
+• Valid moves update board.
+• Updated board is broadcast to all clients.
+
+==========================================
+CLIENT VARIABLES
+==========================================
+
+socket
+chess
+boardElement
+draggedPiece
+sourceSquare
+playerRole
+
+==========================================
+CLIENT FUNCTIONS
+==========================================
+
+renderBoard()
+
+handleMove()
+
+getPieceUnicode()
+
+==========================================
+SOCKET EVENTS
+==========================================
+
+Client
+
+playerRole
+
+spectatorRole
+
+boardState
+
+move
+
+Server
+
+connection
+
+disconnect
+
+move
+
+boardState
+
+==========================================
+PROJECT FEATURES
+==========================================
+
+✔ Real-Time Multiplayer
+✔ Drag & Drop
+✔ Chess Rules Validation
+✔ Spectator Mode
+✔ Board Synchronization
+✔ Illegal Move Prevention
+✔ Board Flip
+✔ Express Routing
+✔ Responsive UI
+
+==========================================
+THANK YOU
+==========================================
+
+Developed using Node.js, Express.js, Socket.IO and Chess.js.
